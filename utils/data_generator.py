@@ -43,6 +43,7 @@ class DataIterator(Iterator):
 
         for i, idx in enumerate(index_array):
             image, label = load_image(self.images_list[idx]), load_image(self.labels_list[idx])
+            label = label[:,:,0] #Get only the first channel for the label
             # random crop
             if self.image_data_generator.random_crop:
                 image, label = random_crop(image, label, self.target_size)
