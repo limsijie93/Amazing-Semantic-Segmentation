@@ -13,8 +13,11 @@ import cv2
 
 
 def load_image(name):
-    img = Image.open(name)
-    return np.array(img)
+    #img = Image.open(name)
+    #return np.array(img)
+    img = cv2.imread(name)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    return img
 
 
 def resize_image(image, label, target_size=None):
